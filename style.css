@@ -1,0 +1,65 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #05020a; color: white; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+/* INTRO */
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.5s ease;
+}
+video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.intro-content { position: relative; z-index: 10; text-align: center; }
+.intro-phrase { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #e0b0ff; margin-bottom: 10px; }
+.btn-entrar {
+    background: linear-gradient(45deg, #8a2be2, #da70d6);
+    border: none; padding: 15px 30px; color: white;
+    border-radius: 50px; cursor: pointer; font-weight: bold;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background: radial-gradient(circle, #1a0b2e 0%, #05020a 100%);
+}
+.hidden { display: none !important; opacity: 0; }
+
+.header-cinema h1 { font-family: 'Cinzel', serif; font-size: 3rem; text-shadow: 0 0 20px #8a2be2; }
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    text-align: center;
+}
+.countdown { display: flex; justify-content: space-around; margin-top: 15px; }
+.countdown-item span { font-size: 1.5rem; font-weight: bold; color: #da70d6; }
+
+.actions-container { width: 100%; max-width: 400px; }
+.btn-action { display: block; text-decoration: none; color: white; font-weight: 600; cursor: pointer; }
+
+/* MODAL */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; display: flex; justify-content: center; align-items: center; }
+.close-modal { position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhayanne - 15 Anos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. INTRO CINEMATOGRÁFICA -->
+    <div id="intro-overlay" class="intro-overlay">
+        <!-- O vídeo gerado pela IA deve ser renomeado para video-intro.mp4 -->
+        <video id="intro-video" src="video-intro.mp4" playsinline></video>
+        
+        <div class="intro-content">
+            <div class="intro-text-container">
+                <p class="intro-phrase">Um momento planejado por Deus...</p>
+                <p class="intro-phrase">Guardado no coração...</p>
+            </div>
+            <button id="btn-entrar" class="btn-entrar">INICIAR EXPERIÊNCIA ✨</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" src="musica.mp3" loop></audio>
+
+    <!-- 2. TELA PRINCIPAL (CONVITE) -->
+    <main id="main-content" class="main-content hidden">
+        <header class="header-cinema">
+            <h1 class="glow-text">RHAYANNE</h1>
+            <p class="subtitle">15 ANOS</p>
+            <div class="event-date">31 • 05 • 2026</div>
+        </header>
+
+        <section class="countdown-container glass-card">
+            <h3>A celebração começa em...</h3>
+            <div id="countdown" class="countdown">
+                <div class="countdown-item"><span id="days">00</span><p>Dias</p></div>
+                <div class="countdown-item"><span id="hours">00</span><p>Horas</p></div>
+                <div class="countdown-item"><span id="minutes">00</span><p>Min</p></div>
+                <div class="countdown-item"><span id="seconds">00</span><p>Seg</p></div>
+            </div>
+        </section>
+
+        <section class="actions-container">
+            <a href="https://wa.me/5585999999999?text=Confirmo%20minha%20presença%20nos%2015%20anos%20da%20Rhayanne" target="_blank" class="btn-action glass-card">
+                <span class="icon">✨</span> Confirmar Presença
+            </a>
+
+            <a href="https://www.google.com/maps/search/Bola+Show" target="_blank" class="btn-action glass-card">
+                <span class="icon">📍</span> Local: Bola Show
+            </a>
+
+            <button id="btn-gifts" class="btn-action glass-card">
+                <span class="icon">🎁</span> Sugestões de Presentes
+            </button>
+        </section>
+
+        <!-- MODAL -->
+        <div id="gift-modal" class="modal hidden">
+            <div class="modal-content glass-card">
+                <span class="close-modal">&times;</span>
+                <h2>Sugestões de Presentes</h2>
+                <ul class="wishlist">
+                    <li>Perfumes adocicados</li>
+                    <li>Maquiagens</li>
+                    <li>Acessórios</li>
+                    <li>PIX: (85) 99999-9999</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
