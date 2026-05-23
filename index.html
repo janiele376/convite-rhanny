@@ -2,72 +2,73 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhayanne - 15 Anos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>15 Anos - Rhayanne</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- 1. INTRO CINEMATOGRÁFICA -->
+    <audio id="main-audio" src="audio-convite.mp3" loop></audio>
+
     <div id="intro-overlay" class="intro-overlay">
-        <!-- O vídeo gerado pela IA deve ser renomeado para video-intro.mp4 -->
-        <video id="intro-video" src="video-intro.mp4" playsinline></video>
-        
-        <div class="intro-content">
-            <div class="intro-text-container">
-                <p class="intro-phrase">Um momento planejado por Deus...</p>
-                <p class="intro-phrase">Guardado no coração...</p>
-            </div>
-            <button id="btn-entrar" class="btn-entrar">INICIAR EXPERIÊNCIA ✨</button>
-        </div>
+        <video id="intro-video" src="video-intro.mp4" playsinline muted></video>
+        <div id="btn-entrar" class="hitbox-invisivel"></div>
     </div>
 
-    <audio id="bg-music" src="musica.mp3" loop></audio>
+<div id="modal-mimos" class="modal-overlay hidden">
+    <div class="modal-box">
+        <button id="btn-fechar" class="close-btn">&times;</button>
+        <h3>Presenteie-nos</h3>
+        
+        <!-- Campo de Valor -->
+        <div style="margin: 15px 0;">
+            <label style="font-size: 12px; display: block; margin-bottom: 5px;">Valor do mimo (R$):</label>
+            <input type="number" id="valor-pix" placeholder="100.00" min="100" 
+                   style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #da70d6; background: #05020a; color: white; text-align: center;">
+        </div>
 
-    <!-- 2. TELA PRINCIPAL (CONVITE) -->
-    <main id="main-content" class="main-content hidden">
-        <header class="header-cinema">
-            <h1 class="glow-text">RHAYANNE</h1>
-            <p class="subtitle">15 ANOS</p>
-            <div class="event-date">31 • 05 • 2026</div>
-        </header>
+        <button id="btn-gerar" style="padding: 10px 20px; background: #da70d6; border: none; border-radius: 5px; color: white; cursor: pointer; font-weight: bold;">
+            Gerar Chave PIX
+        </button>
 
-        <section class="countdown-container glass-card">
-            <h3>A celebração começa em...</h3>
-            <div id="countdown" class="countdown">
-                <div class="countdown-item"><span id="days">00</span><p>Dias</p></div>
-                <div class="countdown-item"><span id="hours">00</span><p>Horas</p></div>
-                <div class="countdown-item"><span id="minutes">00</span><p>Min</p></div>
-                <div class="countdown-item"><span id="seconds">00</span><p>Seg</p></div>
+        <!-- Área que aparece após validar -->
+        <div id="area-pix" class="hidden" style="margin-top: 20px;">
+            <p class="aviso-valor">Copie a chave abaixo:</p>
+            <div id="pix-code" style="background: white; color: black; padding: 10px; border-radius: 5px; font-size: 12px; word-break: break-all; margin-bottom: 10px;">
+                SUA_CHAVE_PIX_AQUI
             </div>
-        </section>
-
-        <section class="actions-container">
-            <a href="https://wa.me/5585999999999?text=Confirmo%20minha%20presença%20nos%2015%20anos%20da%20Rhayanne" target="_blank" class="btn-action glass-card">
-                <span class="icon">✨</span> Confirmar Presença
-            </a>
-
-            <a href="https://www.google.com/maps/search/Bola+Show" target="_blank" class="btn-action glass-card">
-                <span class="icon">📍</span> Local: Bola Show
-            </a>
-
-            <button id="btn-gifts" class="btn-action glass-card">
-                <span class="icon">🎁</span> Sugestões de Presentes
+            <button id="btn-copiar" style="background: #28a745; border: none; padding: 8px 15px; border-radius: 5px; color: white; cursor: pointer;">
+                Copiar Chave
             </button>
-        </section>
+        </div>
+    </div>
+</div>
 
-        <!-- MODAL -->
-        <div id="gift-modal" class="modal hidden">
-            <div class="modal-content glass-card">
-                <span class="close-modal">&times;</span>
-                <h2>Sugestões de Presentes</h2>
-                <ul class="wishlist">
-                    <li>Perfumes adocicados</li>
-                    <li>Maquiagens</li>
-                    <li>Acessórios</li>
-                    <li>PIX: (85) 99999-9999</li>
-                </ul>
+<button id="btn-gerar" onclick="gerarPix()">Gerar PIX</button>
+
+    <main id="main-content" class="main-invitation hidden">
+        <div class="mirror-frame">
+            <div class="inner-info">
+                <h1 class="name">Rhayanne</h1>
+                <p class="event-title">MEUS 15 ANOS</p>
+                <p class="subtitle">VOCÊ É NOSSO CONVIDADO!</p>
+                <div class="event-details">
+                    <div class="date-item"><span class="big-num">31</span><span class="date-label">JULHO</span></div>
+                    <div class="date-item"><span class="big-num">19</span><span class="date-label">HORAS</span></div>
+                </div>
+                <div class="countdown">
+                    <div class="count-unit"><span id="days">00</span><p>DIAS</p></div>
+                    <div class="count-unit"><span id="hours">00</span><p>HRS</p></div>
+                    <div class="count-unit"><span id="minutes">00</span><p>MIN</p></div>
+                    <div class="count-unit"><span id="seconds">00</span><p>SEG</p></div>
+                </div>
+                <div class="button-grid">
+                    <a href="https://wa.me/558592613024" target="_blank" class="btn-icon"><i class="fa-solid fa-check"></i><span>Confirmar</span></a>
+                    <a href="https://www.google.com/maps/place/Bola+e+Show+Campo+Society+e+Eventos/@-3.7151662,-38.5913226,17z/data=!3m1!4b1!4m6!3m5!1s0x7c74a3fe050a4a9:0xc0ab02e4c30a0253!8m2!3d-3.7151716!4d-38.5887477!16s%2Fg%2F1ptz943_5?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-icon"><i class="fa-solid fa-location-dot"></i><span>Local</span></a>
+                    <div id="btn-gifts" class="btn-icon"><i class="fa-solid fa-gift"></i><span>Mimos</span></div>
+                </div>
             </div>
         </div>
     </main>

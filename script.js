@@ -1,45 +1,79 @@
+// --- CONFIGURAÇÃO INICIAL ---
 const btnEntrar = document.getElementById('btn-entrar');
 const introOverlay = document.getElementById('intro-overlay');
 const video = document.getElementById('intro-video');
 const mainContent = document.getElementById('main-content');
-const bgMusic = document.getElementById('bg-music');
 
-// Iniciar Experiência
+// --- TRANSIÇÃO DE INTRO ---
 btnEntrar.addEventListener('click', () => {
-    btnEntrar.style.display = 'none';
-    document.querySelector('.intro-text-container').style.display = 'none';
+    btnEntrar.style.pointerEvents = 'none';
     video.style.opacity = '1';
-    video.play();
-    bgMusic.play();
+    
+    // O navegador permite áudio apenas após interação do usuário.
+    // Garantimos que o vídeo toque com som desde o clique.
+    video.muted = false; 
+    video.play().catch(e => console.error("Erro ao reproduzir vídeo:", e));
 
-    // Transição após o vídeo
+    // Quando o vídeo terminar, ocultamos a intro e revelamos o convite
     video.onended = () => {
         introOverlay.style.opacity = '0';
         setTimeout(() => {
             introOverlay.style.display = 'none';
             mainContent.classList.remove('hidden');
-            mainContent.style.animation = 'fadeIn 2s forwards';
-        }, 1500);
+        }, 800);
     };
 });
 
-// Contador Regressivo
-const target = new Date('May 31, 2026 21:00:00').getTime();
-setInterval(() => {
+// --- CONTADOR REGRESSIVO ---
+const target = new Date('July 31, 2026 19:30:00').getTime();
+
+function updateCountdown() {
     const now = new Date().getTime();
     const diff = target - now;
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById('days').innerText = d;
-    document.getElementById('hours').innerText = h;
-    document.getElementById('minutes').innerText = m;
-    document.getElementById('seconds').innerText = s;
-}, 1000);
+    
+    // Se o evento passou, exibe 00 para evitar erros
+    if (diff < 0) {
+        document.getElementById('days').innerText = "00";
+        document.getElementById('hours').innerText = "00";
+        document.getElementById('minutes').innerText = "00";
+        document.getElementById('seconds').innerText = "00";
+        return;
+    }
+    
+    document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+    document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+    document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+    document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+}
 
-// Modal de Presentes
+// Atualiza o contador a cada segundo
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// --- LÓGICA DO MODAL (CAIXA DE MIMOS) ---
 const btnGifts = document.getElementById('btn-gifts');
-const modal = document.getElementById('gift-modal');
-btnGifts.onclick = () => modal.classList.remove('hidden');
-document.querySelector('.close-modal').onclick = () => modal.classList.add('hidden');
+const modalMimos = document.getElementById('modal-mimos'); 
+const btnFechar = document.getElementById('btn-fechar');
+
+// Abrir Modal
+if (btnGifts && modalMimos) {
+    btnGifts.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalMimos.classList.remove('hidden');
+    });
+}
+
+// Fechar Modal pelo X
+if (btnFechar) {
+    btnFechar.addEventListener('click', () => {
+        modalMimos.classList.add('hidden');
+    });
+}
+
+// Fechar Modal clicando no fundo escuro (fora da caixa)
+window.addEventListener('click', (e) => {
+    if (e.target === modalMimos) {
+        modalMimos.classList.add('hidden');
+    }
+});
+
