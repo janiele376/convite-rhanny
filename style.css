@@ -79,7 +79,7 @@ html, body {
 
 .name { 
     font-family: 'Great Vibes', cursive; 
-    font-size: clamp(2.5rem, 10vw, 3.5rem); /* Ajustado para não estourar no PC */
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
     color: #fff; 
     text-shadow: 0 0 12px #da70d6; line-height: 1;
 }
@@ -160,7 +160,7 @@ html, body {
 .btn-icon i { font-size: 14px; color: #da70d6; }
 .btn-icon span { font-size: 5.5px; font-weight: bold; text-transform: uppercase; margin-top: 2px; color: #fff; }
 
-/* --- BOTÃO REPLAY --- */
+/* --- BOTÃO REPLAY (RESTOURADO E ROSA) --- */
 .btn-long {
     display: flex;
     align-items: center;
@@ -170,19 +170,25 @@ html, body {
     min-width: 160px;
     max-width: 180px;
     padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(218, 112, 214, 0.2);
+    background: rgba(218, 112, 214, 0.06); /* Toque sutil de rosa no fundo */
+    border: 1px solid rgba(218, 112, 214, 0.4); /* Borda rosa visível */
     border-radius: 20px;
-    color: #fff;
     cursor: pointer;
     transition: 0.3s;
     margin-top: 5px;
+}
+
+.btn-long i { 
+    font-size: 9px; 
+    color: #da70d6; /* Ícone rosa */
 }
 
 .btn-long span { 
     font-size: 7.5px; 
     font-weight: 600; 
     text-transform: uppercase; 
+    letter-spacing: 0.8px;
+    color: #da70d6; /* Texto rosa devolvido */
 }
 
 .btn-long:active, .btn-icon:active { transform: scale(0.95); }
@@ -207,6 +213,24 @@ html, body {
     position: relative;
 }
 
+.modal-box h3 {
+    font-family: 'Cinzel', serif;
+    color: #da70d6; font-size: 16px;
+    margin-bottom: 12px; letter-spacing: 1px;
+}
+
+/* BOTÃO DE FECHAR (X ROSA RESTAURADO) */
+.close-btn {
+    position: absolute; 
+    top: 5px; 
+    right: 15px;
+    background: none; 
+    border: none; 
+    color: #da70d6; /* Rosa original */
+    font-size: 30px; 
+    cursor: pointer;
+}
+
 /* LISTA ALINHADA À ESQUERDA COM CORAÇÕES */
 .lista-presentes {
     text-align: left;
@@ -222,8 +246,10 @@ html, body {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
+/* INPUT E BOTÃO PIX */
 #valor-pix {
     width: 100%; padding: 10px; 
     border-radius: 8px; border: 1px solid #da70d6; 
