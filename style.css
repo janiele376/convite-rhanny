@@ -68,25 +68,28 @@ html, body {
 }
 
 /* --- ÁREA INTERNA (TEXTOS) --- */
-/* --- ÁREA INTERNA (TEXTOS) --- */
 .inner-info {
-    width: 85%; height: auto; 
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; 
+    width: 80%; 
+    height: auto; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
     text-align: center;
-    margin-top: -30px; 
     
-    /* MOVE TUDO JUNTO PARA A DIREITA (Texto, Círculos e Botões) */
-    transform: translateX(5px); 
+    /* ALTERE ESTA LINHA: Aumentamos o valor negativo para subir tudo um pouco mais */
+    margin-top: -40px; 
     
-    gap: 8px; 
+    transform: translateX(5px); /* Mantém o ajuste para a direita */
+    gap: 1px; 
 }
 
 .name { 
     font-family: 'Great Vibes', cursive; 
-    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 3rem); 
     color: #fff; 
-    text-shadow: 0 0 12px #da70d6; line-height: 1;
+    text-shadow: 0 0 16px #da70d6; 
+    line-height: 1;
 }
 
 .event-title { 
@@ -175,12 +178,14 @@ html, body {
     min-width: 160px;
     max-width: 180px;
     padding: 6px 12px;
-    background: rgba(218, 112, 214, 0.06); /* Toque sutil de rosa no fundo */
-    border: 1px solid rgba(218, 112, 214, 0.4); /* Borda rosa visível */
+    background: rgba(218, 112, 214, 0.06); 
+    border: 1px solid rgba(218, 112, 214, 0.4); 
     border-radius: 20px;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 5px;
+    
+    /* ALTERE ESTA LINHA: O valor negativo faz APENAS ele subir */
+    margin-top: -8px; 
 }
 
 .btn-long i { 
@@ -330,7 +335,7 @@ html, body {
     text-transform: uppercase;
     letter-spacing: 0.8px;
     opacity: 0.85;
-    max-width: 210px;
+    max-width: 190px;
     line-height: 1.25;
     font-family: 'Montserrat', sans-serif;
 }
