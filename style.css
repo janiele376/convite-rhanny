@@ -68,12 +68,17 @@ html, body {
 }
 
 /* --- ÁREA INTERNA (TEXTOS) --- */
+/* --- ÁREA INTERNA (TEXTOS) --- */
 .inner-info {
     width: 85%; height: auto; 
     display: flex; flex-direction: column;
     align-items: center; justify-content: center; 
     text-align: center;
     margin-top: -30px; 
+    
+    /* MOVE TUDO JUNTO PARA A DIREITA (Texto, Círculos e Botões) */
+    transform: translateX(5px); 
+    
     gap: 8px; 
 }
 
@@ -160,7 +165,7 @@ html, body {
 .btn-icon i { font-size: 14px; color: #da70d6; }
 .btn-icon span { font-size: 5.5px; font-weight: bold; text-transform: uppercase; margin-top: 2px; color: #fff; }
 
-/* --- BOTÃO REPLAY (RESTOURADO E ROSA) --- */
+/* --- BOTÃO REPLAY (RESTAURADO E ROSA) --- */
 .btn-long {
     display: flex;
     align-items: center;
@@ -277,3 +282,55 @@ html, body {
 }
 
 .hidden { display: none !important; }
+
+/* --- SEÇÃO DA PALETA DE CORES (ULTRA COMPACTA) --- */
+.paleta-container {
+    margin: 2px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.paleta-titulo {
+    letter-spacing: 1.5px;
+    color: #da70d6; 
+    font-size: 8.5px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.paleta-cores {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Garante que fiquem alinhados no meio */
+    gap: 8px;
+    margin: 1px 0;
+}
+
+.cor-circulo {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(218, 112, 214, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    object-fit: cover; /* Faz a imagem do prata preencher o círculo sem distorcer */
+}
+
+/* Cores reservadas à aniversariante */
+.cor-circulo.roxo { background-color: #6a1b9a; }
+.cor-circulo.lilas { background-color: #dfb2f4; }
+/* O prata não precisa mais de background-color pois agora usa a imagem */
+
+.paleta-texto.proibido {
+    font-size: 7.5px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    opacity: 0.85;
+    max-width: 210px;
+    line-height: 1.25;
+    font-family: 'Montserrat', sans-serif;
+}
